@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	<h1>Hello World PrimeFaces</h1>
+
+	<h:form id="editorForm">
+	<p:editor id="editorId" value="#{editorBean.value}" >
+        <f:facet name="toolbar">
+             <span class="ql-formats">
+            </span>
+        </f:facet>
+    </p:editor>
+        <p:commandButton value="INTERPRETUJ" class="ql-strike" actionListener="#{editorBean.interpret()}" update="editorForm:editorId" />
+    </h:form>
+
+</h:body>
+</html>

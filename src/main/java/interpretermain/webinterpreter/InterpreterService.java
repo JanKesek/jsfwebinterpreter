@@ -1,15 +1,16 @@
-package webinterpreter;
+package interpretermain.webinterpreter;
 
-import org.springframework.context.annotation.Bean;
+import interpretermain.interpreterengines.InterpreterEngine;
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import java.io.Serializable;
 import java.io.StringWriter;
 
 @Service
+@Log
 public class InterpreterService {
 
    // private CasterService casterService;
@@ -32,7 +33,7 @@ public class InterpreterService {
     }
 
     public String printInterpret(String sourceCode, String engineName) {
-        System.out.println("printInterpret");
+        log.info(".printInterpreter " + engineName);
         StringWriter writer = new StringWriter();
         ScriptEngine engine = getEngine(engineName);
         engine.getContext().setWriter(writer);

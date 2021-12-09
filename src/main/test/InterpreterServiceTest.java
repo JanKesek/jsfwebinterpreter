@@ -1,5 +1,5 @@
 import org.assertj.core.api.Assertions;
-import webinterpreter.InterpreterService;
+import interpretermain.webinterpreter.InterpreterService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

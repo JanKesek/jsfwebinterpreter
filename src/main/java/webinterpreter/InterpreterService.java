@@ -1,17 +1,15 @@
 package webinterpreter;
 
-import javax.ejb.Stateless;
-import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.io.Serializable;
 import java.io.StringWriter;
 
-@Stateless
-@Dependent
+@Service
 public class InterpreterService {
 
    // private CasterService casterService;

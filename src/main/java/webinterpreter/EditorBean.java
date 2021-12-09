@@ -1,31 +1,37 @@
 package webinterpreter;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.beans.factory.ObjectFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import java.io.Serializable;
+import java.lang.annotation.Annotation;
+import java.util.Map;
 
-@Named
-@SessionScoped
-public class EditorBean implements Serializable {
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Component
+@Scope("view")
+public class EditorBean {
+
+    @Autowired
     private InterpreterService interpreterService;
+    @Getter
+    @Setter
+    private String value = "This editor is provided by PrimeFaces";
 
-    @Inject
-    public EditorBean(InterpreterService interpreterService) {
-        this.interpreterService = interpreterService;
-    }
-
-	private String value = "This editor is provided by PrimeFaces";
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-	public void interpret() {
+    public void interpret() {
         System.out.println("editorBean.interpret");
         value = interpreterService.printInterpret(value,"nashorn");
     }

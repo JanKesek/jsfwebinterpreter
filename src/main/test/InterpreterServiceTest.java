@@ -1,3 +1,4 @@
+import org.assertj.core.api.Assertions;
 import webinterpreter.InterpreterService;
 import org.junit.jupiter.api.Test;
 
@@ -8,11 +9,15 @@ public class InterpreterServiceTest {
 
     @Test
     void testJavascriptPrint() {
-        assertEquals("7\n",interpreterService.printInterpret("print(5+2)", "nashorn"));
+        Assertions.assertThat(interpreterService.printInterpret("print(5+2)", "nashorn"))
+            .isEqualToIgnoringWhitespace("7");
     }
+
     @Test
     void testJavascriptNumber() {
-        assertEquals("7\n",interpreterService.printInterpret("7", "nashorn"));
+
+        Assertions.assertThat(interpreterService.printInterpret("7", "nashorn"))
+            .isEqualToIgnoringWhitespace("7");
     }
 
 }

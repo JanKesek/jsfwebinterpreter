@@ -2,7 +2,7 @@ package interpretermain.interpreterengines;
 
 import javax.annotation.Resource;
 
-@Resource
+@Resource(name = "javascriptNashornEngine")
 public class JavascriptNashornEngine implements InterpreterEngine {
     @Override
     public String getEngineName() {

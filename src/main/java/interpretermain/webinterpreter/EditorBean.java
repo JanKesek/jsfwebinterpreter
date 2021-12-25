@@ -40,6 +40,7 @@ public class EditorBean {
             log.info(".intepreter did not choose intepreter");
             return;
         }
+        value = ParseUtils.stripHtml(value);
         value = interpreterService.printInterpret(value, interpreterMenu.getEngineByViewName(selectedEngine));
         log.info(".interpreter complete " + value);
     }

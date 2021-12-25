@@ -19,5 +19,10 @@ public class InterpreterServiceTest {
         Assertions.assertThat(interpreterService.printInterpret("7", "nashorn"))
             .isEqualToIgnoringWhitespace("7");
     }
+    @Test
+    void testPrintNumberHtml() {
+        Assertions.assertThat(interpreterService.printInterpret("<p>print(5+2);</p> ", "nashorn"))
+                .isEqualToIgnoringWhitespace("7");
+    }
 
 }

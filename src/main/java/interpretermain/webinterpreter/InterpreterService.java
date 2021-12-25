@@ -19,7 +19,9 @@ public class InterpreterService {
 
     private String interpret(ScriptEngine engine, String sourceCode) {
         try {
-            return (String)engine.eval(sourceCode);
+            String result = (String)engine.eval(sourceCode);
+            log.info(".interpret resull " + result);
+            return result;
         }
         catch (ScriptException se) {
             return se.getMessage();
@@ -38,6 +40,6 @@ public class InterpreterService {
         ScriptEngine engine = getEngine(engineName);
         engine.getContext().setWriter(writer);
         interpret(engine, sourceCode);
-        return writer.toString();
+        return writer.toString().trim();
     }
 }

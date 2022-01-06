@@ -1,4 +1,4 @@
-package webinterpreter;
+package interpretermain.webinterpreter;
 
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.config.Scope;

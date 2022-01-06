@@ -13,12 +13,16 @@
 	<h1>Hello World PrimeFaces</h1>
 
 	<h:form id="editorForm">
-	<p:editor id="editorId" value="#{editorBean.value}" >
-        <f:facet name="toolbar">
-             <span class="ql-formats">
-            </span>
-        </f:facet>
-    </p:editor>
+        <p:selectOneMenu id="group" value="#{editorBean.selectedEngine}">
+            <f:selectItem itemLabel="Select Interpreter" itemValue=""/>
+            <f:selectItems value="#{editorBean.interpreterMenu()}"/>
+        </p:selectOneMenu>
+        <p:textEditor id="editorId" value="#{editorBean.value}" secure="false">
+            <f:facet name="toolbar">
+                 <span class="ql-formats">
+                </span>
+            </f:facet>
+        </p:textEditor>
         <p:commandButton value="INTERPRETUJ" class="ql-strike" actionListener="#{editorBean.interpret()}" update="editorForm:editorId" />
     </h:form>
 

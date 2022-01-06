@@ -1,0 +1,18 @@
+liquibase:
+  url: jdbc:postgresql://localhost:5438/challenge_api
+  driverClassName: org.postgresql.Driver
+  user: postgres
+  password: liquibase
+  dropFirst: false
+spring:
+  datasource:
+    platform:
+      postgresql
+    url:
+      jdbc:postgresql://localhost:5438/challenge_api
+    driver-class-name:
+      org.postgresql.Driver
+    username:
+      postgres
+    password:
+      postgres

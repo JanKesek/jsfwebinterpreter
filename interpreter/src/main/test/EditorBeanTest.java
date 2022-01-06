@@ -26,7 +26,7 @@ public class EditorBeanTest {
 
     @Test
     void stripHTML() {
-        when(interpreterMenu.getEngineByViewName(anyString())).thenReturn(new JavascriptNashornEngine().getEngineName());
+        when(interpreterMenu.getEngineByViewName(anyString())).thenReturn(new JavascriptNashornEngine());
         editorBean.setValue("<p>print(2+5);</p>");
         editorBean.setSelectedEngine("nashorn");
         editorBean.interpret();

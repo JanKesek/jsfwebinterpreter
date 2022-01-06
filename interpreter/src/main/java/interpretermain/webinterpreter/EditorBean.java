@@ -41,7 +41,7 @@ public class EditorBean {
             return;
         }
         value = ParseUtils.stripHtml(value);
-        value = interpreterService.printInterpret(value, interpreterMenu.getEngineByViewName(selectedEngine));
+        value = interpreterService.printInterpret(interpreterMenu.getEngineByViewName(selectedEngine), value);
         log.info(".interpreter complete " + value);
     }
 

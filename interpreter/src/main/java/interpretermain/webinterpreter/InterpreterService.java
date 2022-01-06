@@ -17,9 +17,9 @@ public class InterpreterService {
 
     public InterpreterService() {}
 
-    private String interpret(ScriptEngine engine, String sourceCode) {
+    private String interpret(InterpreterEngine engine, String sourceCode) {
         try {
-            String result = (String)engine.eval(sourceCode);
+            String result = (String) engine.evaluate(sourceCode);
             log.info(".interpret resull " + result);
             return result;
         }
@@ -28,18 +28,9 @@ public class InterpreterService {
         }
     }
 
-    private ScriptEngine getEngine(String engineName) {
-        ScriptEngineManager manager = new ScriptEngineManager();
-        ScriptEngine engine = manager.getEngineByName(engineName);
-        return engine;
-    }
-
-    public String printInterpret(String sourceCode, String engineName) {
-        log.info(".printInterpreter " + engineName);
-        StringWriter writer = new StringWriter();
-        ScriptEngine engine = getEngine(engineName);
-        engine.getContext().setWriter(writer);
-        interpret(engine, sourceCode);
-        return writer.toString().trim();
+    public String printInterpret(InterpreterEngine engine, String sourceCode) {
+        log.info(".printInterpreter " + sourceCode);
+        String deleteHTML = ParseUtils.stripHtml(sourceCode);
+        return interpret(engine, deleteHTML);
     }
 }

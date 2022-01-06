@@ -26,10 +26,10 @@ public class InterpreterMenu {
         return engines.stream().map(InterpreterEngine::getEngineNameView).collect(Collectors.toList());
     }
 
-    public String getEngineByViewName(String engineNameView) {
+    public InterpreterEngine getEngineByViewName(String engineNameView) {
         InterpreterEngine engineToEvaluate = engines.stream()
             .filter(e -> engineNameView.equals(e.getEngineNameView()))
             .findFirst().orElse(new JavascriptNashornEngine());
-        return engineToEvaluate.getEngineName();
+        return engineToEvaluate;
     }
 }

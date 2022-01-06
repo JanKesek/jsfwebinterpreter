@@ -1,3 +1,4 @@
+import interpretermain.interpreterengines.JavascriptNashornEngine;
 import org.assertj.core.api.Assertions;
 import interpretermain.webinterpreter.InterpreterService;
 import org.junit.jupiter.api.Test;
@@ -9,20 +10,21 @@ public class InterpreterServiceTest {
 
     @Test
     void testJavascriptPrint() {
-        Assertions.assertThat(interpreterService.printInterpret("print(5+2)", "nashorn"))
+        Assertions.assertThat(interpreterService.printInterpret(new JavascriptNashornEngine(), "print(5+2)"))
             .isEqualToIgnoringWhitespace("7");
     }
 
     @Test
     void testJavascriptNumber() {
 
-        Assertions.assertThat(interpreterService.printInterpret("7", "nashorn"))
+        Assertions.assertThat(interpreterService.printInterpret(new JavascriptNashornEngine(), "7"))
             .isEqualToIgnoringWhitespace("7");
     }
+
     @Test
     void testPrintNumberHtml() {
-        Assertions.assertThat(interpreterService.printInterpret("<p>print(5+2);</p> ", "nashorn"))
-                .isEqualToIgnoringWhitespace("7");
+        Assertions.assertThat(interpreterService.printInterpret(new JavascriptNashornEngine(), "<p>print(5+2);</p> "))
+            .isEqualToIgnoringWhitespace("7");
     }
 
 }

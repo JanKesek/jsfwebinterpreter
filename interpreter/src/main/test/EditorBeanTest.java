@@ -30,6 +30,6 @@ public class EditorBeanTest {
         editorBean.setValue("<p>print(2+5);</p>");
         editorBean.setSelectedEngine("nashorn");
         editorBean.interpret();
-        Assertions.assertThat(editorBean.getValue()).isEqualTo("7");
+        Assertions.assertThat(editorBean.getValue()).isEqualToIgnoringWhitespace("7");
     }
 }

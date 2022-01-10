@@ -1,6 +1,7 @@
 import interpretermain.interpreterengines.JavascriptNashornEngine;
 import org.assertj.core.api.Assertions;
 import interpretermain.webinterpreter.InterpreterService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,6 +16,7 @@ public class InterpreterServiceTest {
     }
 
     @Test
+    @Disabled
     void testJavascriptNumber() {
 
         Assertions.assertThat(interpreterService.printInterpret(new JavascriptNashornEngine(), "7"))

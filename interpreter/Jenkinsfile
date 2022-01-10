@@ -1,8 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "maven"
-        jdk 'JAVA 8'
+        jdk "11.0.13"
     }
 
     triggers {
@@ -16,7 +15,7 @@ pipeline {
         }
         stage('Test') {
                     steps {
-                        sh 'mvn clean install'
+                        sh 'mvn test'
                     }
         }
     }

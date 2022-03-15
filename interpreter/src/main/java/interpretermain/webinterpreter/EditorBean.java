@@ -31,7 +31,8 @@ public class EditorBean {
     }
 
 
-    private String value = "This editor is provided by PrimeFaces";
+    private String value = "";
+    private String outputValue = "";
     private String selectedEngine;
 
 
@@ -41,8 +42,8 @@ public class EditorBean {
             return;
         }
         value = ParseUtils.stripHtml(value);
-        value = interpreterService.printInterpret(interpreterMenu.getEngineByViewName(selectedEngine), value);
-        log.info(".interpreter complete " + value);
+        outputValue = interpreterService.printInterpret(interpreterMenu.getEngineByViewName(selectedEngine), value);
+        log.info(".interpreter complete " + outputValue);
     }
 
     public List<String> interpreterMenu() {

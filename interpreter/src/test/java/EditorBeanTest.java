@@ -17,6 +17,7 @@ public class EditorBeanTest {
     EditorBean editorBean;
     @Mock
     private InterpreterMenu interpreterMenu;
+
     @BeforeEach
     void initialize() {
         MockitoAnnotations.openMocks(this);

@@ -10,7 +10,7 @@
 <h:head>
 </h:head>
 <h:body>
-	<h1>Hello World PrimeFaces</h1>
+    <h1 id="welcome_text">Hello World PrimeFaces</h1>
 
 	<h:form id="editorForm">
         <p:selectOneMenu id="group" value="#{editorBean.selectedEngine}">
@@ -23,7 +23,9 @@
                 </span>
             </f:facet>
         </p:textEditor>
-        <p:commandButton value="INTERPRETUJ" class="ql-strike" actionListener="#{editorBean.interpret()}" update="editorForm:editorId" />
+        <p:inputText id="interpretOutput" value="#{editorBean.outputValue}" readonly="true"/>
+        <p:commandButton id="interpretButton" value="INTERPRETUJ" class="ql-strike"
+                         actionListener="#{editorBean.interpret()}" update="editorForm:interpretOutput"/>
     </h:form>
 
 </h:body>
